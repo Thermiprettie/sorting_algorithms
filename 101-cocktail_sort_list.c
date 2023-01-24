@@ -15,25 +15,25 @@ void cocktail_sort_list(listint_t **list)
 
 	if (!list || !(*list) || (*list)->next == NULL)
 		return;
-	 cur = *list;
-	 do {
-		 while (cur->next)
-		 {
-			 if (cur->n > cur->next->n)
-				 move_left(cur->next, cur, list);
-			 else
-				 cur = cur->next;
-		 }
-		 max = cur;
-		 while (cur->prev != min)
-		 {
-			 if (cur->n < cur->prev->n)
-				 move_left(cur, cur->prev, list);
-			 else
-				 cur = cur->prev;
-		 }
-		 min = cur;
-	 } while (min != max);
+	cur = *list;
+	do {
+		while (cur->next)
+		{
+			if (cur->n > cur->next->n)
+				move_left(cur->next, cur, list);
+			else
+				cur = cur->next;
+		}
+		max = cur;
+		while (cur->prev != min)
+		{
+			if (cur->n < cur->prev->n)
+				move_left(cur, cur->prev, list);
+			else
+				cur = cur->prev;
+		}
+		min = cur;
+	} while (min != max);
 }
 
 /**
